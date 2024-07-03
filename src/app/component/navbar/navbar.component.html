@@ -1,0 +1,21 @@
+<mat-toolbar color="warn">
+  <div class="nav-btns">
+    <div>{{ authUser$ | async }}</div>
+
+    <div class="second-nav-btns">
+      <button mat-raised-button [routerLink]="'/guevara/home'">
+        <mat-icon fontIcon="home"></mat-icon> Home
+      </button>
+      <button mat-raised-button [routerLink]="'/guevara/reporte01'">
+        <mat-icon fontIcon="signal_cellular_alt"></mat-icon>Cantidad
+        Certificationes
+      </button>
+      <button mat-raised-button [routerLink]="'/guevara/reporte02'">
+        <mat-icon fontIcon="dataset"></mat-icon> Total de certificationes
+      </button>
+      <button mat-raised-button (click)="close()">
+        <mat-icon fontIcon="logout"></mat-icon> Logout
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

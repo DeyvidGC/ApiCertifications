@@ -1,0 +1,15 @@
+.body-container {
+  width: 16rem;
+  height: 100%;
+  margin: auto;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  .formg {
+    text-align: center;
+    padding: 2rem;
+    div{
+      margin-bottom: 1rem;
+    }
+  }
+}

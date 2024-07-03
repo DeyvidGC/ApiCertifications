@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 style="text-align: center;">Listado</h1>
+  
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container matColumnDef="djgcName">
+          <mat-header-cell *matHeaderCellDef>
+            Name
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{ element.djgcName }} </mat-cell>
+        </ng-container>
+  
+        <!-- Name Column -->
+        <ng-container matColumnDef="djgTotal">
+          <mat-header-cell *matHeaderCellDef>
+            Valor
+          </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+            {{ element.djgTotal }}
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,10 @@
+.nav-btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .second-nav-btns{
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+    }
+}

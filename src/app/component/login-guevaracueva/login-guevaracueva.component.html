@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="body-container">
+      <form class = "formg" [formGroup]="loginForm"(ngSubmit) = 'login()' >
+         <h1 class="" text-center>Inicio de sesión</h1>
+         
+         <div class="user-input">
+            <mat-form-field class="example-full-width">
+               <mat-label>User</mat-label>
+               <input formControlName="username" matInput placeholder="User">
+             </mat-form-field>
+         </div>
+    
+         <div class="pass-input">
+            <mat-form-field class="example-full-width">
+               <mat-label>Password</mat-label>
+               <input formControlName="password" matInput placeholder="password" type="password">
+             </mat-form-field>
+         </div>
+
+         <div class="btn-summit">
+            <button type="submit" mat-raised-button color="primary">Ingresar</button>
+         </div>
+    
+      </form>
+    </div>
+</div>
+  
