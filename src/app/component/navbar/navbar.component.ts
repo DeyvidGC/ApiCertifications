@@ -13,9 +13,11 @@ export class NavbarComponent {
 
   
   authUser$: Observable<string | null>;
+  authRol$:  Observable<string | null>;
 
   constructor(private router : Router, private http:HttpClient, private loginService: LoginService) {
     this.authUser$ = this.loginService.authUser$;
+    this.authRol$ = this.loginService.authRol$;
   };
 
   public close(){

@@ -4,6 +4,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { Credentials } from '../model/credentials';
 import {map} from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { Role } from '../model/role';
 
 const baseUrl = environment.base;
 
@@ -15,6 +16,9 @@ export class LoginService {
 
   private authUserSubject = new BehaviorSubject<string| null>(null);
   authUser$ = this.authUserSubject.asObservable();
+
+  private authRolSubject = new BehaviorSubject<string| null>(null);
+  authRol$ = this.authRolSubject.asObservable();
   
   private url = `${baseUrl}`;//alt+96
   private httpHeaders = new HttpHeaders({'Access-Control-Allow-Origin': 'http://localhost:8080'});
@@ -33,9 +37,19 @@ export class LoginService {
         console.log(headers.get('Authorization')!);
         const token = bearerToken.replace('Bearer ', '');
         console.log(token);
+
+        const roles: Role[] = body.authorities.map(
+          (auth: { authority: string }) => {
+            return {
+              rol: auth.authority,
+            };
+          }
+        );
+        
         localStorage.setItem('token', token);
         localStorage.setItem('user', body.username);
         this.authUserSubject.next(body.username);
+        this.authRolSubject.next(roles[0].rol);
         return body;
       }));
   }
@@ -46,8 +60,11 @@ export class LoginService {
   getUser(){
     return localStorage.getItem('user');
   }
+  
+
   closeSession(){
     localStorage.clear();
     this.authUserSubject.next(null);
+    this.authRolSubject.next(null);
   }
 }

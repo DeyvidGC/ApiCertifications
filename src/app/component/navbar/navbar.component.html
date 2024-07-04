@@ -1,7 +1,7 @@
 <mat-toolbar color="warn">
   <div class="nav-btns">
-    <div>{{ authUser$ | async }}</div>
-
+    <div>Usuario: {{ authUser$ | async }}</div>
+    <div>Rol: {{ authRol$ | async }}</div>
     <div class="second-nav-btns">
       <button mat-raised-button [routerLink]="'/guevara/home'">
         <mat-icon fontIcon="home"></mat-icon> Home

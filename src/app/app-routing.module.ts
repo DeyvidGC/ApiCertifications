@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'guevara/home',
+    redirectTo: 'guevara/login',
     pathMatch: 'full'
   }
 ];
